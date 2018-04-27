@@ -26,8 +26,14 @@
 #define NO_AE   KC_QUOT  // ä
 #undef  NO_CIRC
 #define NO_CIRC LSFT(KC_RBRC)  // ^
+#undef  NO_GRV
+#define NO_GRV  LSFT(NO_BSLS)  //
 #undef  NO_OSLH
 #define NO_OSLH KC_SCLN  // ö
+
+// Space Cadet Shift override for nordic (finnish)
+#define LSPO_KEY KC_8
+#define RSPC_KEY KC_9
 
 // Additional Swedish keys not defined in the nordic keyset
 #define NO_AA   KC_LBRC  // å
