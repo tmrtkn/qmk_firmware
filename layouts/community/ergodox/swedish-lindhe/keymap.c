@@ -34,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |        |   !  |  "   |  #   |  #   |  %   |      |           |      |   &  |  /   |  (   |  )   |  =   |  ?     |
- * | Del    |   1  |  2 @ |  3 £ |  4 $ |  5   |      |           |      |   6  |  7 { |  8 [ |  9 ] |  0 } |  + \   |
+ * | Del    |   1  |  2 @ |  3 £ |  4 $ |  5   |MEH(F)|           |      |   6  |  7 { |  8 [ |  9 ] |  0 } |  + \   |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | Tab    | Q    | W    | E    | R    | T    | ~L1  |           |  L1  | Y    | U    | I    | O    | P    | Å      |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -56,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [BASE] = LAYOUT_ergodox(  // layer 0 : default
     // left hand
-    KC_DELT,         KC_1,     KC_2,     KC_3,    KC_4,    KC_5,   KC_F11,
+    KC_DELT,         KC_1,     KC_2,     KC_3,    KC_4,    KC_5,   MEH(KC_F),
     KC_TAB ,         KC_Q,     KC_W,     KC_E,    KC_R,    KC_T,   MO(SYMB),
     CTL_T(KC_ESC),   KC_A,     KC_S,     KC_D,    KC_F,    KC_G,
     KC_LSPO,         KC_Z,     KC_X,     KC_C,    KC_V,    KC_B,   NO_ASTR,
