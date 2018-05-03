@@ -29,12 +29,19 @@
 #define SYMB 1 // symbols
 #define MDIA 2 // media keys
 
+
+/* Tap Dancery */
+enum
+{
+  TD_ECLIPSE_OPEN
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |        |   !  |  "   |  #   |  #   |  %   |      |           |      |   &  |  /   |  (   |  )   |  =   |  ?     |
- * | Del    |   1  |  2 @ |  3 £ |  4 $ |  5   |MEH(F)|           |      |   6  |  7 { |  8 [ |  9 ] |  0 } |  + \   |
+ * |        |   !  |  "   |  #   |  #   |  %   |Eclipse           |      |   &  |  /   |  (   |  )   |  =   |  ?     |
+ * | Del    |   1  |  2 @ |  3 £ |  4 $ |  5   |OpenT/R           |MEF(F)|   6  |  7 { |  8 [ |  9 ] |  0 } |  + \   |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | Tab    | Q    | W    | E    | R    | T    | ~L1  |           |  L1  | Y    | U    | I    | O    | P    | Å      |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -56,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [BASE] = LAYOUT_ergodox(  // layer 0 : default
     // left hand
-    KC_DELT,         KC_1,     KC_2,     KC_3,    KC_4,    KC_5,   MEH(KC_F),
+    KC_DELT,         KC_1,     KC_2,     KC_3,    KC_4,    KC_5,   TD(TD_ECLIPSE_OPEN),
     KC_TAB ,         KC_Q,     KC_W,     KC_E,    KC_R,    KC_T,   MO(SYMB),
     CTL_T(KC_ESC),   KC_A,     KC_S,     KC_D,    KC_F,    KC_G,
     KC_LSPO,         KC_Z,     KC_X,     KC_C,    KC_V,    KC_B,   NO_ASTR,
@@ -65,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                           NO_TILD,
                                         KC_SPC, KC_BSPC,  NO_GRV,
     // right hand
-         KC_MS_BTN3,   KC_6,   KC_7,    KC_8,    KC_9,    KC_0,     NO_PLUS,
+         MEH(KC_F),   KC_6,   KC_7,    KC_8,    KC_9,    KC_0,     NO_PLUS,
          TG(SYMB),     KC_Y,   KC_U,    KC_I,    KC_O,    KC_P,     NO_AA,
                        KC_H,   KC_J,    KC_K,    KC_L,    NO_OSLH,  NO_AE,
          MEH_T(KC_NO), KC_N,   KC_M,    KC_COMM, KC_DOT,  NO_MINS,  KC_RSPC,
@@ -203,4 +210,10 @@ void matrix_scan_user(void) {
         ergodox_right_led_1_off();
     }
 
+};
+
+
+
+qk_tap_dance_action_t tap_dance_actions[] = {
+        [TD_ECLIPSE_OPEN] = ACTION_TAP_DANCE_DOUBLE(LCTL(LSFT(KC_T)), LCTL(LSFT(KC_R))),
 };

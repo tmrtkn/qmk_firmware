@@ -52,5 +52,7 @@
 #define NO_PIPE_MAC ALGR(KC_7)  // |
 #define NO_RCBR_MAC ALGR(LSFT(KC_9))  // }
 
+#define TAPPING_TERM 200
+
 #endif
 
